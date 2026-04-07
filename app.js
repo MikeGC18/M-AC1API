@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const products_routes = require('./routes/products.js')
 
 //Server instantiation
@@ -9,7 +10,7 @@ const slugify = require('slugify');
 //Server configuration: template engine
 app.set('views', './views');
 app.set('view engine', 'pug');
-app.use(express.static('/views'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 //Midleware
 app.use(express.json())
